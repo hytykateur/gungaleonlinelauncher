@@ -1,0 +1,36 @@
+"mods": [
+
+	["/home/hytykateur/.minecraft/mods/Floocraft-1.7.10-1.7.jar","2555bceb7a8ad415f4d8f955a0afb7afe8c660a6"],
+	["/home/hytykateur/.minecraft/mods/Secret-Rooms-Mod-1.7.10.jar","8c37652e48445e61b7a8e42679df8fb78eb990c0"],
+	["/home/hytykateur/.minecraft/mods/M-Ore-Mod-1.7.10.jar","8da15f168d03801495cc380fd5a15813bfe0036f"],
+	["/home/hytykateur/.minecraft/mods/Railcraft_1.7.10-9.12.2.0.jar","3e259298d954f9c5189914d145b7fe8fb572aab2"],
+	["/home/hytykateur/.minecraft/mods/PalaModSolo.jar","c47e0ee35ffebde31cc77b56ebd6bab13887598b"],
+	["/home/hytykateur/.minecraft/mods/ImprovedHoes-1.7.10-1.1.jar","e1202e0c03249901d5e83e8a110091d02d2aa7c0"],
+	["/home/hytykateur/.minecraft/mods/modid-1.0.jar","f156ab60f5a2110a12dd2d0878f647d25bbcd003"],
+	["/home/hytykateur/.minecraft/mods/appliedenergistics2-rv0-stable-10.jar","b142f30e348dc0b42145ce1d605da55686e3b872"],
+	["/home/hytykateur/.minecraft/mods/Custom-NPCs-Mod-1.7.10.jar","2d75096f72bda3e95dd69e94d6c79787da11b78a"],
+	["/home/hytykateur/.minecraft/mods/Emotes-Mod-1.7.10.jar","0cca444ea6455d224af84b96b62eeeae18302bcf"],
+	["/home/hytykateur/.minecraft/mods/OptiFine_1.7.10_HD_U_E7.jar","2130d7266224da6a7325051e37444f7e7c19277c"],
+	["/home/hytykateur/.minecraft/mods/NotEnoughItems-1.7.10-1.0.5.120-universal.jar","a7587d48f19b6e9e8791c0e3d2e9aca3b36882c7"],
+	["/home/hytykateur/.minecraft/mods/StorageDrawers-1.7.10-1.10.9.jar","5bdf2f085625ed799789a89e163297444f014940"],
+	["/home/hytykateur/.minecraft/mods/CodeChickenCore-1.7.10-1.0.7.47-universal.jar","98f63c1705c297517c905a6a07b91d7f5683f131"],
+
+],
+"checksums" [
+	"2555bceb7a8ad415f4d8f955a0afb7afe8c660a6",
+	"8c37652e48445e61b7a8e42679df8fb78eb990c0",
+	"8da15f168d03801495cc380fd5a15813bfe0036f",
+	"3e259298d954f9c5189914d145b7fe8fb572aab2",
+	"c47e0ee35ffebde31cc77b56ebd6bab13887598b",
+	"e1202e0c03249901d5e83e8a110091d02d2aa7c0",
+	"f156ab60f5a2110a12dd2d0878f647d25bbcd003",
+	"b142f30e348dc0b42145ce1d605da55686e3b872",
+	"2d75096f72bda3e95dd69e94d6c79787da11b78a",
+	"0cca444ea6455d224af84b96b62eeeae18302bcf",
+	"2130d7266224da6a7325051e37444f7e7c19277c",
+	"a7587d48f19b6e9e8791c0e3d2e9aca3b36882c7",
+	"98f63c1705c297517c905a6a07b91d7f5683f131"
+],
+"anticheat":{
+	"sha1":"98f63c1705c297517c905a6a07b91d7f5683f131"
+}

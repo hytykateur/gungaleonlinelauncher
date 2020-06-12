@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body {
+    background: white;
+    color: white;   
+    margin: 0;
+    overflow: hidden;
+}
+.align-center {
+    text-align: center;
+    margin:auto;
+}
+header {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 280px;
+}
+h1 {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    top: 10px;
+    text-align: center;
+}
+.description {  
+    margin-top: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+.launch-section {
+    padding: 10px;
+    text-align: -webkit-center;
+    width: 90%;
+    display:block;
+    z-index: 99;
+}
+.launch-section button {
+    font-size: 0.8em;
+    border-radius: 3px;
+}
+.launch-button {
+    position: relative;
+    
+    background: rgb(29, 136, 19);
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    zoom: 1.2;
+}
+.launch-button:hover {
+    background : black;
+}
+.setplayerusername-button {
+    position: relative;
+    background: rgb(12, 74, 245);
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    zoom: 1.2;
+}
+.setplayerusername-button:hover {
+    background : black;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    margin: 0;
+    font-size: 10px;
+    width: 100%;
+    background: rgb(37, 37, 37);
+    color: white;
+}
+footer p {
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 2px;
+}

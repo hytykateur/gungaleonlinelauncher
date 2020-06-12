@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GunGaleOnline - Launcher by whispered</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <script src="../js/SelectorHelper.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <style>
+        #user_email {
+            display:block;
+            width: 300px;
+            margin:auto;
+            margin-bottom: 20px;
+        }
+        #connexion_event {
+            display:block;
+                top: 20px;
+        }
+       .headertransi-imgs {
+           height: 100%;
+           position: absolute;
+           top:0;
+           left: 0;
+           right: 0;
+           display: block;
+
+            opacity: 0;
+            transition: opacity 2s; 
+        
+       }
+       .headertransi-imgs.visible {
+            opacity: 1;
+            
+           display: block;
+       }
+       .headertransi-img1 {
+           display: block;
+       }
+
+#slideSource.fade {
+  opacity: 0;
+}
+.overlays {
+            margin: auto;
+        }
+        .overlay {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.8);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+        }
+        .overlay_content {
+            text-align: center;
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            right: 20%;
+            bottom: 20%;
+        }
+        .overlay_content p {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .overlay h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+        .statusServer {
+            z-index:999;
+        }
+        .utilities_overlay {
+            display: none;
+        }
+        .statusServer {
+            display:block;
+            position:relative;
+            color:red;
+            padding: 10px;
+            background: white;
+            margin-bottom: 20px;
+            width: 50%;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+    function setCookie(c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value;
+    }
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return '';
+    }
+    function $(selector) {
+        return document.querySelector(selector);
+    }
+    function Connexion() {
+        if ($('#user_email').value.toString().includes(" ")) {
+            
+            $('.connection_status').innerHTML = '<span class="color-red">Le nom d\'utilisateur contient des espaces</span>';
+            return;
+        }
+        require('electron').remote.getGlobal('shared').connection($('#user_email').value)
+        .then(function (e) {
+            console.log(e)
+            if (e.status == '500') {
+                $('.connection_status').innerHTML = '<span class="color-red">Username or password invalid</span>';
+            } else {
+                $('.connection_status').innerHTML = '';
+                document.title = 'GunGaleOnline - Connecté en tant que '+e.status
+                $('.connection_overlay').style.display = 'none';
+            }
+        });
+    }
+   
+    require('electron').remote.getGlobal('events').on('status',function (msg) {
+        $('.statusText').innerHTML = msg;
+        console.log(msg);
+    })
+    require('electron').remote.getGlobal('events').on('log',function (msg) {
+       console.log(msg);
+    })
+    require('electron').remote.getGlobal('events').on('progressEvent',function (data) {
+       var progressbar = document.querySelector("#progressbar");
+       progressbar.min = 0;
+       progressbar.max = 100;
+       progressbar.value = data;
+    })
+    require('electron').remote.getGlobal('events').on('forceUpdate',function () {
+
+       $('.updateModpack').style.display = "none";
+       $('.forceInstallLibraries').style.display = "none";
+       window.alert('Un mise à jour importante doit être effectuée')
+       require('electron').remote.getGlobal('shared').installLibraries();
+    })
+window.onload = function () {
+    
+    if (require('electron').remote.getGlobal('shared').isConnected()) {
+        $('.connection_overlay').style.display = 'none';
+    }
+    $('.setplayerusername-button').onclick = function () {
+        require('electron').remote.getGlobal('shared').disconnect();
+        $('.connection_overlay').style.display  = 'block';
+    }
+    $('.launch-button').onclick = function () {
+        require('electron').remote.getGlobal('shared').runClient();
+    }
+}
+</script>
+</head>
+<body>
+    <header>
+            <img src="../img/wallpaper1.png" class="headertransi-imgs visible headertransi-img1" />
+            <img src="../img/wallpaper2.png" class="headertransi-imgs headertransi-img2" />
+            <img src="../img/wallpaper3.png" class="headertransi-imgs headertransi-img3" />
+            <img src="../img/wallpaper4.png" class="headertransi-imgs headertransi-img4" />
+        <h1>Gun Gale Online</h1>
+        </header>
+        <div class="description">
+            Gun Gale Online est un serveur faction moddé privé fait par whispered, fresney et LunatiQ.
+        </div>
+        <div align="center">
+            <div class="launch-section">
+                
+            <div class="statusServer">
+                <progress id="progressbar"></progress>
+                <div class="statusText"></div>
+            </div>
+                <button class="launch-button" onclick="require('electron').remote.getGlobal('shared').runClient();">Jouer</button>
+            </div>
+    </div>
+    <footer>
+        <p>
+            Launcher by whispered - Dev version
+        </p>
+    </footer>
+    <div class="overlays">
+        <div class="overlay connection_overlay">
+            <div class="overlay_content">
+                <h2>Connexion</h2>
+                <p>
+                    Entrez un pseudo pour jouer. <br/>
+                   <b> Ils est obligatoire de choisir toujours le même pseudo lors de la connexion.</b><br/>
+                    Souvenez vous en !
+
+                </p>
+                <div class="pure-form">
+                <input type="text" autofocus="on" autocomplete="on" id="user_email" placeholder="Ex: John_Doe" onkeyup="if(event.which == 13) {Connexion();}">
+                    <button type="submit" class="connexion_event pure-button pure-button-primary" onclick="Connexion();">Connexion</button>
+                    <div class="connection_status">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay utilities_overlay">
+            <div class="overlay_content">
+                <h2>Utilitaires</h2>
+                <p>
+                    En construction
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        let current_wallpaper = 1;
+        var transi_interval;    
+        window.onload = function() {
+            transi_interval = setInterval(async function() {
+                
+                document.querySelector('.headertransi-img'+current_wallpaper).classList.toggle('visible');
+                if (current_wallpaper == 4) {
+                    current_wallpaper = 1;
+                    
+                document.querySelector('.headertransi-img'+current_wallpaper).classList.toggle('visible');
+                } else {
+                    document.querySelector('.headertransi-img'+(current_wallpaper+1)).classList.toggle('visible');
+                    current_wallpaper++;
+                }
+                
+                
+                
+
+            },5000);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+	"info": {
+		"client_name":"GunGaleOnline",
+		"client_version":"Beta-1.1.2",
+		"minecraft_version":"1.7.10",
+	},
+	"repositories":{
+		"maven":"https://repo1.maven.org/maven2",
+		"github":"https://github.com/hytykateur/ggo_libraries",
+		"forge_maven":"http://files.minecraftforge.net/maven"
+	},
+	"downloads": {
+		"mods": [
+			{
+
+			}
+		],
+		"libraries": {
+			"forge_maven":[
+				
+			]
+		},
+		"assets":[
+			{
+				
+			}
+		]
+
+	}
+}
